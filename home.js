@@ -1,24 +1,6 @@
 let inpu = document.getElementById("text_entered");
 let btn1 = document.getElementById("btn1");
 let ou1 = document.getElementById("output1");
-function resetPage() {
-    // Clear input field
-    inpu.value = '';
-    
-    // Clear output display
-    ou1.innerHTML = '';
-  
-    // Stop audio if it's playing
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-  
-    // Remove any displayed GIFs
-    while (gifContainer.firstChild) {
-      gifContainer.removeChild(gifContainer.firstChild);
-    }
-  }
 function fun1(){
     
     ou1.innerHTML= inpu.value;
@@ -47,7 +29,7 @@ function fun1(){
               
               ou1.innerHTML = '<h2>true thala fan<\h2>';
               let title =document.getElementById('title');
-              title.append(' \u{1F609}  \u{1F609}  thala test passed');
+              title.innerHTML += '<div>\u{1F609}  \u{1F609}  thala test passed</div>';
 
   }
     else if(/^\d+$/.test(inpu.value)){
@@ -70,8 +52,11 @@ function fun1(){
                   audio.currentTime = 0;
                   alert('Wanna Try again! ? by refreshing');
                   location.reload();}
-              }, 7000);
-              ou1.innerHTML = 'true thala fan'}
+              }, 10000);
+              
+              ou1.innerHTML = '<h2>true thala fan<\h2>';
+              let title =document.getElementById('title');
+              title.append(' \u{1F609}  \u{1F609}  thala test passed');}
         else{let audio = new Audio('audiofalse.mp3');
         audio.play()
              let gif = document.createElement('img');
@@ -89,9 +74,12 @@ function fun1(){
                   audio.currentTime = 0;
                   alert('Wanna Try again! ? by refreshing');
                   location.reload();}
-              }, 7000);   
+              }, 10000);   
+              ou1.innerHTML = '<h2>thala test failed<\h2>';
+              let title =document.getElementById('title');
+              title.append(' \u{1F622}  \u{1F622}  thala test failed');
             }
-            }
+    }
     else{   
         let audio = new Audio('audiofalse.mp3');
         audio.play()
@@ -110,8 +98,17 @@ function fun1(){
                   audio.currentTime = 0;
                   alert('Wanna Try again! ? by refreshing');
                   location.reload();}
-              }, 7000);}
+              }, 10000);
+              ou1.innerHTML = '<h2>thala test failed<\h2>';
+              let title =document.getElementById('title');
+              title.append(' \u{1F622}  \u{1F622}  thala test failed');}
             }
         
     
 btn1.addEventListener('click',fun1) 
+inpu.addEventListener('keypress', function(event) {
+  // Check if Enter key (key code 13) is pressed
+  if (event.keyCode === 13) {
+    fun1(); // Call fun1() when Enter key is pressed
+  }
+});

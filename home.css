@@ -1,7 +1,5 @@
 
 html, body {
-    height: 100%;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,29 +10,42 @@ html, body {
     padding-left: 40px;
     padding-right: 40px;
     background-color: beige;
+    
     z-index:2;}
     
 .clickme{
     position: relative;
     margin: center;
     height: 50px;
-    width: 50px;
+    width: 65px;
     border-radius: 9px;
     border-color: aliceblue;
     color: white;
     font-size: large;
     background-color: brown;
+    margin-left: 15px;
+    transition: background-color 0.4s,color .4s;
 }
+
 .clickme:hover{
     cursor: pointer;
-    animation: forwards;
+    background-color: red;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.25) ;;
 }
+
 .input{
-    background-color: aqua;
+    background-color: rgb(185, 121, 39);
     font-weight: 600;
     font-size: large;
+    padding-right: 10px;
+    color: azure;
+    height: 32px;
+    margin-left: 30px;
 }
 .videoconfig{
     height: 20px;
     width:200px;
+}
+.titlee{
+    margin-left: 30px;
 }
